@@ -9,7 +9,7 @@ interface AnnouncementBannerProps {
 }
 
 export function AnnouncementBanner({
-  message = "GeneriCon 2023 · Join us in Denver from June 7 – 9 to see what's coming next →",
+  message = "referal system (💸 Earn massive 50% from referrals — share your link with friends and earn more SOL!)",
   onClose,
   className = ""
 }: AnnouncementBannerProps) {

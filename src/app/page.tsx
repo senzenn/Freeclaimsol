@@ -15,14 +15,22 @@ import Analysis from "@/components/components/analysis";
 import GlobalHistory from "@/components/components/globalHistory";
 import Stats from "@/components/components/stats";
 import { Component } from "@/components/ui/hero-section";
+import { AnnouncementBanner } from "@/components/ui/announcement-banner";
 
 export default function Home() {
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [isBannerVisible, setIsBannerVisible] = useState<boolean>(true);
   const {publicKey} = useWallet();
 
   return (
     <div className="relative w-full min-h-screen flex flex-col overflow-hidden bg-black">
-      <Component />
+      {isBannerVisible && (
+        <AnnouncementBanner onClose={() => setIsBannerVisible(false)} />
+      )}
+
+      <div className={isBannerVisible ? "mt-8" : ""}>
+        <Component />
+      </div>
       <div className={`container mx-auto px-4 w-full pb-16 transition-opacity duration-300 ${publicKey ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{ marginTop: '-80vh' }}>
         <Analysis />
       </div>

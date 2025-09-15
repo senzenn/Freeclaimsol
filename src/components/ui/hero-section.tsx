@@ -9,7 +9,6 @@ import { Liquid, Colors } from "@/components/ui/button-1";
 import HeroWave from "@/components/ui/dynamic-wave-canvas-background";
 import Stats from "@/components/components/stats";
 import { WalletModal } from "@/components/ui/wallet-modal";
-import { AnnouncementBanner } from "@/components/ui/announcement-banner";
 
 const colors = {
   primary: "#4fd1c5", // teal/cyan
@@ -27,7 +26,6 @@ export function Component() {
   const gradientRef = useRef<HTMLDivElement>(null);
   const [isWalletModalOpen, setIsWalletModalOpen] = useState(false);
   const [isClient, setIsClient] = useState(false);
-  const [isBannerVisible, setIsBannerVisible] = useState(true);
   const { publicKey } = useWallet();
   const { setVisible } = useWalletModal();
 
@@ -143,9 +141,6 @@ export function Component() {
       className="min-h-screen bg-gradient-to-br from-[#23263a] via-[#181c2b] to-[#0f1419] text-white font-primary overflow-hidden relative w-full"
       style={{ minHeight: '200vh', paddingTop: '60px' }}
     >
-      {/* Announcement Banner */}
-      <AnnouncementBanner onClose={() => setIsBannerVisible(false)} />
-
       {/* Top-left brand logo using custom Zina font */}
       <div className="absolute top-6 left-6 z-20 select-none">
         <h1 className="font-zina text-4xl md:text-5xl leading-none text-white/95">
